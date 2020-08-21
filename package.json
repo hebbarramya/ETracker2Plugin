@@ -1,0 +1,19 @@
+{
+  "name": "eTracker2-CommsPlugin",
+  "version": "0.0.1",
+  "description": "TIO Communication Plugin for eTracker2",
+  "cordova": {
+    "id": "com.mti.eTracker2CommsPlugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Mindteck India Ltd.",
+  "license": "MIT"
+}

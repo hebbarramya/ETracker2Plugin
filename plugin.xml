@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.mti.eTracker2CommsPlugin" version="0.0.1">
+   <name>eTracker2CommsPlugin</name>
+   <js-module name="eTracker2CommsPlugin" src="www/eTracker2CommsPlugin.js">
+      <clobbers target="eTracker2CommsPlugin" />
+   </js-module>
+
+   <platform name="android" xmlns:android="http://schemas.android.com/apk/res/android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="eTracker2CommsPlugin">
+            <param name="android-package" value="com.mti.eTracker2CommsPlugin.eTracker2CommsPlugin" />
+         </feature>
+      </config-file>
+
+       <config-file target="AndroidManifest.xml" parent="/*">
+           <uses-permission android:name="android.permission.BLUETOOTH" />
+           <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+           <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+           <uses-feature
+               android:name="android.hardware.bluetooth_le"
+               android:required="true" />
+       </config-file>
+       <config-file target="res/xml/config.xml" parent="/*">
+           <feature name="TIOService">
+               <param name="android-package" value="com.telit.terminalio.TIOService"/>
+           </feature>
+       </config-file>
+       <source-file src="src/android/eTracker2CommsPlugin.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/ResourceCleaner.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/ETrackerModels.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/SDI12PassthroughController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/PluginUtil.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/PeripheralAuthController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/FileTransferController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/ConfigReaderController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/TimeSyncController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/DeviceInfoController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/GenericCommandController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/ScanSDI12Controller.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/DeviceDiscoveryController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/DeviceConnectionController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/SetPasswordController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/SensorReadingsController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/ApplyActionsController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/TemporaryOverrideController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/Certificate_DownloadController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+       <source-file src="src/android/Firmware_UpgradeController.java" target-dir="src/com/mti/eTracker2CommsPlugin" />
+      <framework src="src/android/dependencies.gradle" custom="true" type="gradleReference" />
+      <source-file src="libs/TerminalIO.aar" target-dir="libs/" />
+      <source-file src="libs/gson-2.8.5.jar" target-dir="libs/" />
+   </platform>
+
+
+
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="eTracker2CommsPlugin">
+            <param name="ios-package" value="eTracker2CommsPlugin" />
+         </feature>
+      </config-file>
+      <source-file src="src/ios/eTracker2CommsPlugin.m" />
+   </platform>
+</plugin>
